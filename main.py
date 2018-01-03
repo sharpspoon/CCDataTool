@@ -1,6 +1,14 @@
 import csv
 import _random
+
+
+fileLoc = raw_input("Please enter the location of the file: ")
+fileName = raw_input("Please enter the name of the file: ")
+print fileLoc
+print fileName
+
 def readMyFile(filename):
+	
     dates = []
     scores = []
 
@@ -9,14 +17,17 @@ def readMyFile(filename):
         for row in csvReader:
             dates.append(row[0])
             scores.append(row[1])
-            print csvDataFile
+            #print csvDataFile
 
     return dates, scores
 
 
-dates, scores = readMyFile('c:\est.csv')
-text = raw_input("prompt")
-print text
+
+fulleFilePath = fileLoc+fileName
+print 'full file path=',fulleFilePath
+
+dates, scores = readMyFile(fulleFilePath)
+
 print(dates)
 print(scores)
 
