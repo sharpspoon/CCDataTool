@@ -32,8 +32,8 @@ def readMyFile(filename):
 
 
 
-#fulleFilePath = fileLoc+fileName
-fullFilePath = 'c:\est.csv'
+fullFilePath = fileLoc+fileName
+#fullFilePath = 'c:\est.csv'
 
 
 print 'Opening file...',fullFilePath
