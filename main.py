@@ -64,19 +64,22 @@ def readMyFile(filename):
 
         with open(filename) as csvDataFile:
             csvReader = csv.reader(csvDataFile)
-            for row in csvReader:
-                col1.append(row[0])
-                col2.append(row[1])
-                col3.append(row[2])
-            for col in row:
-                print 1
+            #ncol = len(next(csvReader))
+            #nrow = sum(1 for row in csvDataFile)
+            #print 'ncol',ncol
+            #print 'nrow',nrow
+            try:
+                for row in csvReader:
+                    print ','.join(row)
+            except csv.Error as e:
+                    sys.exit('file %s, line %d: %s' % (filename, reader.line_num, e))
+
+
         print 'Opening file...', fullFilePath
 
         return col1, col2, col3
     else:
-        col1 = 'Error code: '
-        col2 = 'only accept .csv at this time'
-        return col1, col2
+        return 'Only accept .CSV for this release'
 
 
 
