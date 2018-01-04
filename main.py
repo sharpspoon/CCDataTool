@@ -49,44 +49,48 @@ import random
 import glob
 
 
-
+print 'CallidusCloud Data Import Tool Copyright 2018'
+print ''
 fileLoc = raw_input("Please enter the location of the file: ")
 fileName = raw_input("Please enter the name of the file: ")
 
 def readMyFile(filename):
     fullFilePath = fileLoc + fileName
     if '.csv' in fileName:
-        dates = []
-        scores = []
+        col1 = []
+        col2 = []
+        col3 = []
         row = 0
 
         with open(filename) as csvDataFile:
             csvReader = csv.reader(csvDataFile)
             for row in csvReader:
-                dates.append(row[0])
-                scores.append(row[1])
+                col1.append(row[0])
+                col2.append(row[1])
+                col3.append(row[2])
             for col in row:
                 print 1
         print 'Opening file...', fullFilePath
 
-        return dates, scores
+        return col1, col2, col3
     else:
-        dates = 'Error code: '
-        scores = 'only accept .csv at this time'
-        return dates, scores
+        col1 = 'Error code: '
+        col2 = 'only accept .csv at this time'
+        return col1, col2
 
 
 
 
-#fulleFilePath = fileLoc+fileName
-fullFilePath = 'c:\est.csv'
+fullFilePath = fileLoc+fileName
+#fullFilePath = 'c:\est.csv'
 
 
 print 'Opening file...',fullFilePath
 
-dates, scores = readMyFile(fullFilePath)
+col1, col2, col3 = readMyFile(fullFilePath)
 
-print(dates)
-print(scores)
+print(col1)
+print(col2)
+print(col3)
 
   
